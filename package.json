@@ -1,0 +1,72 @@
+{
+  "name": "redux-experimenting",
+  "version": "1.0.0",
+  "description": "Experimenting redux",
+  "private": true,
+  "main": "src/index.js",
+  "scripts": {
+    "test": "xo",
+    "posttest": "ava test/**/*.spec.js",
+    "build": "NODE_ENV=production browserify -t src/index.js | uglifyjs -o public/bundle.min.js",
+    "watch": "watchify -t babelify src/index.js -o public/bundle.js -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruffle1986/redux-experimenting.git"
+  },
+  "keywords": [
+    "redux",
+    "reducer",
+    "experiment",
+    "playground",
+    "example"
+  ],
+  "author": "ruff",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ruffle1986/redux-experimenting/issues"
+  },
+  "homepage": "https://github.com/ruffle1986/redux-experimenting#readme",
+  "dependencies": {
+    "immutable": "^3.7.5",
+    "react": "^0.14.0-rc1",
+    "react-dom": "^0.14.0-rc1",
+    "react-redux": "^2.1.2",
+    "redux": "^3.0.0",
+    "redux-immutable": "^1.3.7"
+  },
+  "devDependencies": {
+    "ava": "^0.2.0",
+    "babel": "^5.8.23",
+    "babelify": "^6.3.0",
+    "browserify": "^11.1.0",
+    "eslint": "^1.4.1",
+    "eslint-config-xo": "^0.5.0",
+    "eslint-config-xo-react": "^0.2.0",
+    "eslint-plugin-react": "^3.3.2",
+    "watchify": "^3.4.0",
+    "xo": "^0.8.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "xo/esnext",
+      "xo-react"
+    ]
+  },
+  "xo": {
+    "esnext": true,
+    "space": true,
+    "semicolon": false,
+    "envs": [
+      "browser",
+      "node"
+    ],
+    "ignores": [
+      "dist/**",
+      "node_modules/**/*"
+    ],
+    "rules": {
+      "babel/object-curly-spacing": 0
+    }
+  }
+}
