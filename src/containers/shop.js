@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
-import { combineReducers, createStore } from 'redux'
+import { combineReducers, createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import Cart from '../components/cart'
 import ProductList from '../components/product-list'
 import * as reducers from '../reducers'
 
-const store = createStore(combineReducers(reducers), {
+import crashReporter from '../middlewares/crash-reporter'
+import logger from '../middlewares/logger'
+
+const createStoreWithMiddlewares = applyMiddleware(
+  logger,
+  crashReporter
+)(createStore)
+const store = createStoreWithMiddlewares(combineReducers(reducers), {
   cart: {
     products: []
   },

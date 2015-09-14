@@ -28,8 +28,10 @@
   },
   "homepage": "https://github.com/ruffle1986/redux-experimenting#readme",
   "dependencies": {
+    "debug": "^2.2.0",
     "immutable": "^3.7.5",
     "react": "^0.14.0-rc1",
+    "react-addons-perf": "^0.14.0-rc1",
     "react-dom": "^0.14.0-rc1",
     "react-redux": "^2.1.2",
     "redux": "^3.0.0",

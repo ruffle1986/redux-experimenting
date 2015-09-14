@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const Product = ({ products }) => (
+const Cart = ({ products }) => (
   <div className="cart">
     Cart ({ products.length })
   </div>
@@ -9,4 +9,4 @@ const Product = ({ products }) => (
 
 export default connect(props => ({
   products: props.cart.products
-}))(Product)
+}))(Cart)
