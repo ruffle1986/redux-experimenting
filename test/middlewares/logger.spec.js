@@ -9,7 +9,7 @@ const logger = proxyquire('../../src/middlewares/logger', {
   'react-addons-perf': {
     getLastMeasurements: getLastMeasurementsSpy
   },
-  debug: () => debugSpy
+  'debug': () => debugSpy
 })
 const nextStubResult = {}
 const action = {}
@@ -29,5 +29,5 @@ test('logger middleware', t => {
   t.is(debugSpy.args[1][1], measurements)
   t.is(storeMock.getState.calledOnce, true)
   t.is(getLastMeasurementsSpy.calledOnce, true)
-  t.end();
+  t.end()
 })

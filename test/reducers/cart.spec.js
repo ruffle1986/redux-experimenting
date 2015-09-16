@@ -3,7 +3,7 @@ import cart from '../../src/reducers/cart'
 import { ADD, REMOVE } from '../../src/action-types/cart'
 
 test('return witn initial state', t => {
-  t.same(cart(undefined, {}), { products: [] })
+  t.same(cart(undefined, {}), { error: '', products: [] })
   t.end()
 })
 

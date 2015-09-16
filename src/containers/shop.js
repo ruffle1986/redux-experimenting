@@ -4,13 +4,16 @@ import { Provider } from 'react-redux'
 import Cart from '../components/cart'
 import ProductList from '../components/product-list'
 import * as reducers from '../reducers'
+import * as cartActions from '../actions/cart'
 
 import crashReporter from '../middlewares/crash-reporter'
 import logger from '../middlewares/logger'
+import thunk from 'redux-thunk'
 
 const createStoreWithMiddlewares = applyMiddleware(
+  crashReporter,
   logger,
-  crashReporter
+  thunk
 )(createStore)
 const store = createStoreWithMiddlewares(combineReducers(reducers), {
   cart: {
@@ -30,6 +33,10 @@ const store = createStoreWithMiddlewares(combineReducers(reducers), {
 })
 
 class Shop extends Component {
+
+  componentDidMount() {
+    store.dispatch(cartActions.fetchCartData('cart.json'))
+  }
 
   render() {
     return (
